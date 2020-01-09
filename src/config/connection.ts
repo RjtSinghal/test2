@@ -2,6 +2,8 @@ import * as mongoose from 'mongoose';
 import { default as config } from '../env/index';
 import logger from './../util/logger';
 
+import UserController from './../controllers/userController'
+
 interface connectOptions {
     autoReconnect: boolean;
     reconnectTries: number; // Never stop trying to reconnect
@@ -35,6 +37,7 @@ db.on('connected', () => {
 
 db.once('open', () => {
     console.log('\x1b[32m', 'MongoDB :: connection opened');
+    UserController.getBlockData(); 
 });
 
 db.on('reconnected', () => {

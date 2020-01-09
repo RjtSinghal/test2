@@ -12,7 +12,7 @@ export default class UserRouter {
     }
 
     public routes(): void {
-        this.router.get('/', UserController.get);
-        this.router.put('/', UserController.update);
+        this.router.get('/block', UserController.getBlockData);
+        this.router.get('/tx', UserController.getTxData);
     }
 }
